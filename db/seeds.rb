@@ -19,6 +19,10 @@ c3.items.create(name:'Catalitic Converter', description:'Someone stole your cata
 c4.items.create(name:'Harry potter', description:'In great condition', price: 13)
 
 
+Job.create(title:'Web Designer', company:'Apple', salary:100,000 )
+Job.create(title:'Project Manager', company:'Google', salary:120,000 )
+Job.create(title:'Librarian', company:'Provo City Library', salary:40,000 )
+
 
 
 
