@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
     Catagory.destroy_all
+    Job.destroy_all
     
     
 c1 = Catagory.create(name:'Computers')
@@ -19,9 +20,10 @@ c3.items.create(name:'Catalitic Converter', description:'Someone stole your cata
 c4.items.create(name:'Harry potter', description:'In great condition', price: 13)
 
 
-Job.create(title:'Web Designer', company:'Apple', salary:100,000 )
-Job.create(title:'Project Manager', company:'Google', salary:120,000 )
-Job.create(title:'Librarian', company:'Provo City Library', salary:40,000 )
+Job.create(title:'Web Designer', company:'Apple', salary: 100000 )
+Job.create(title:'Project Manager', company:'Google', salary: 120000 )
+Job.create(title:'Librarian', company:'Provo City Library', salary: 40000 )
+
 
 
 
@@ -29,3 +31,4 @@ Job.create(title:'Librarian', company:'Provo City Library', salary:40,000 )
 
 puts Catagory.all.count
 puts Item.all.count
+puts Job.all.count
