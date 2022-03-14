@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 namespace :api do
 
+  get 'all', to: 'catagories#all'
+  get 'catagories_all/:id', to: 'catagories#catagories_all'
+  get 'items',  to:'items#items_all'
 resources :jobs 
 
 resources :catagories do

@@ -2,10 +2,22 @@ class Api::CatagoriesController < ApplicationController
 
     before_action :set_catagory, only: [:show, :update, :destroy]
 
+def all 
+    catagories = Catagory.all
+      catagory_data = catagories.map do |catagory|
+        {catagory: catagory, items: catagory.items}
+      end
+      render json: catagory_data
+end
 
 def index 
 render json: Catagory.all
 end
+
+def catagories_all
+    render json: {catagories: @catagories, items: @catagories.items}
+end
+
 
 def show
 render json: @catagory

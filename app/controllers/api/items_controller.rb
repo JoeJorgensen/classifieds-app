@@ -1,11 +1,16 @@
 class Api::ItemsController < ApplicationController
-before_action :set_catagory
+before_action :set_catagory, except: [:items_all]
 before_action :set_item, only: [:show, :update, :destroy]
 
 
 def index
 render json: @catagory.items
 end
+
+def items_all
+    render json: Item.all
+end
+
 
 def show
 render json: @item
