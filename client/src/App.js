@@ -9,10 +9,11 @@ function App() {
       <nav className='border'>
           
       {/* <Link to='/'>Home</Link> - {''} */}
-      <Link to='/about'>About</Link> - {''}
+      
       <Link to='/catagories'>Catagories</Link> - {''}
-      <Link to= '/jobs'>Jobs</Link>
-
+      <Link to= '/jobs'>Jobs</Link> - {''}
+      <Link to= '/home'>Home</Link> - {''}
+      <Link to='/about'>About</Link> 
       </nav>
       <Outlet/>
     </div>

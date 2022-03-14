@@ -7,8 +7,8 @@ const Category = (props)=>{
 
     return (
         <div className='border'>
-            <h1>Category</h1>
-            <p>{name}</p>
+            <p>Category</p>
+            <h2>{name}</h2>
             <div className='border'style={{ 
             textAlign: 'center',
             display: 'flex', 

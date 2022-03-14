@@ -15,11 +15,12 @@ import Item from './Pages/Item';
 import Jobs from './Pages/Jobs';
 import Job from './Pages/Job';
 import JobShow from './Pages/JobShow';
+import DataProvider from './Providers/DataProvider';
 
 ReactDOM.render(
+  <DataProvider>  
   <BrowserRouter>
-<Routes>
-  
+  <Routes>
   <Route path="/" element={<App />}>
   <Route path='home' element={<Home />} />
   <Route path = 'about' element={<About />}/>
@@ -31,12 +32,13 @@ ReactDOM.render(
   <Route path = 'items' element={<Items />}/>
   <Route path = 'item' element={<Item />}/>
   <Route path = 'jobs' element={<Jobs />}/>
-  <Route path = 'job' element={<Job/>}/>
-  <Route path = 'job/:id' element={<JobShow />}/>
+   <Route path = 'job' element={<Job/>}/>
+   <Route path = 'job/:id' element={<JobShow />}/>
   </Route>
 
 </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
+  </DataProvider>,
   document.getElementById('root')
 );
 

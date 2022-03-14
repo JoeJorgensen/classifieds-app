@@ -1,11 +1,14 @@
 import axios from 'axios'
 import react from 'react'
+import { useContext } from 'react'
 import { useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { DataContext } from '../Providers/DataProvider'
 
 
 const CategoryForm = ()=>{
-    const navigate = useNavigate()
+const {addCategory} = useContext(DataContext)
+const navigate = useNavigate()
 const location = useLocation() 
 const [name, setName] = useState(location.state ? location.state.name : '')
 const params = useParams()
@@ -17,8 +20,8 @@ const handleSubmit = async (e)=>{
         await axios.put(`/api/catagories/${params.id}`, 
         {name, id: params.id})
          }else{
-            await axios.post(`/api/catagories`, 
-            {name})
+          let res = await axios.post(`/api/catagories`,  {name})
+          addCategory(res.data)
     }
      navigate('/catagories')
     }catch(err){
