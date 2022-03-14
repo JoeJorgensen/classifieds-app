@@ -1,22 +1,30 @@
+import axios from 'axios'
 import react from 'react'
 import { useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 
 const CategoryForm = ()=>{
+    const navigate = useNavigate()
 const location = useLocation() 
 const [name, setName] = useState(location.state ? location.state.name : '')
 const params = useParams()
-const handleSubmit = (e)=>{
-    e.preventDefault()
-    if(params.id){
-        console.log('update')
-        console.log({name, id: params.id})
-    }else{
-        console.log('create')
-        console.log({name})
 
+const handleSubmit = async (e)=>{
+    e.preventDefault()
+    try {
+    if(params.id){
+        await axios.put(`/api/catagories/${params.id}`, 
+        {name, id: params.id})
+         }else{
+            await axios.post(`/api/catagories`, 
+            {name})
     }
+     navigate('/catagories')
+    }catch(err){
+            alert('error updating category')
+        }
+       
 }
 
     return (
@@ -29,8 +37,8 @@ const handleSubmit = (e)=>{
                 <button>{params.id ? 'Update' :  'Add'}</button>
             </form> 
 
-             <p>id: {params.id ? params.id : 'no id'}</p>
-            <p>{JSON.stringify(location.state)}</p>
+             <p>id: {params.id ? params.id : ''}</p>
+            {/* <p>{JSON.stringify(location.state)}</p> */}
 
         </div>
     )

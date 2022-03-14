@@ -19,26 +19,21 @@ import JobShow from './Pages/JobShow';
 ReactDOM.render(
   <BrowserRouter>
 <Routes>
-  <Route path="/" element={<App />}/>
-  <Route index element={<Home />} />
+  
+  <Route path="/" element={<App />}>
+  <Route path='home' element={<Home />} />
   <Route path = 'about' element={<About />}/>
-  <Route path = 'catagories' element={<Catagories />}/>
+  <Route path = 'catagories' element={<Catagories/>}/>
   <Route path = 'category' element={<Category />}/>
   <Route path = 'category/:id' element={<CategoryShow />}/>
   <Route path = 'category/new' element={<CategoryForm/>}/>
   <Route path = 'category/:id/edit' element={<CategoryForm/>}/>
-
-
-
   <Route path = 'items' element={<Items />}/>
   <Route path = 'item' element={<Item />}/>
   <Route path = 'jobs' element={<Jobs />}/>
   <Route path = 'job' element={<Job/>}/>
   <Route path = 'job/:id' element={<JobShow />}/>
-
-
-
-
+  </Route>
 
 </Routes>
   </BrowserRouter>,

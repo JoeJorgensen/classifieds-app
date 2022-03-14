@@ -11,6 +11,10 @@ const Catagories = ()=>{
     useEffect(()=>{
         getCatagories()
     },[])
+    const deleteCategory= async (id)=>{
+        await axios.delete(`/api/catagories/${id}`)
+        setCatagories(catagories.filter(c=> c.id !== id))
+    }
     const getCatagories = async()=>{
         try{
         let res = await axios.get('/api/catagories')
@@ -21,11 +25,11 @@ const Catagories = ()=>{
     }
     const renderCatagories = ()=>{
         return catagories.map(c=>{
-            return <Category key = {c.id} {...c}/>
+            return <Category key = {c.id} {...c} deleteCategory={deleteCategory}/>
         })
     }
     return (
-        <div>
+        <div className='border' style={{textAlign:'center'}}>
             <h1>Catagories</h1>
             <button onClick={()=>navigate('/category/new')}>Add</button>
             <div>
